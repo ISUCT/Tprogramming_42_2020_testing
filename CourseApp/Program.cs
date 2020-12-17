@@ -6,9 +6,9 @@ namespace CourseApp
     {
         public static int Calc(Numer a, Numer b)
         {
-            if ((a == null) || (b == null))
+            if ((a.Value == null) || (b.Value == null))
             {
-                throw new System.NullReferenceException("a or b");
+                throw new NullReferenceException("a or b is null");
             }
             else
             {
