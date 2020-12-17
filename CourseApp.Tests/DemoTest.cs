@@ -11,7 +11,7 @@ namespace CourseApp.Tests
         {
             Car car1 = new Car();
             var result = Assert.Throws<ArgumentNullException>(() => car1.Sum(null)).Message;
-            Assert.Equal("Value cannot be null.\r\nParameter name: One or more values is null.", result);
+            Assert.Equal("Value cannot be null.\nParameter name: One or more values is null.", result);
         }
 
         [Fact]
