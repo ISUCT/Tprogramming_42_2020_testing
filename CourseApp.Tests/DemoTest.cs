@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using Moq;
 
 namespace CourseApp.Tests
 {
@@ -37,6 +38,16 @@ namespace CourseApp.Tests
             a.Value = null;
             b.Value = null;
             Assert.Throws<System.NullReferenceException>(() => Program.Calc(a, b));
+        }
+
+        [Fact]
+        public void TestFuntionRun()
+        {
+            var mock = new Mock<ClassB>();
+            mock.Setup(b => b.B(It.IsAny<int>()));
+            var classA = new ClassA(mock.Object);
+            var exp = classA.B();
+            mock.Verify(b => b.B(It.IsAny<int>()), Times.Once());
         }
     }
 }

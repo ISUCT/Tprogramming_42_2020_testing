@@ -17,6 +17,13 @@ namespace CourseApp
             }
         }
 
+        public static void Task2()
+        {
+            ClassB b = new ClassB();
+            ClassA a = new ClassA(b);
+            Console.WriteLine(a.B());
+        }
+
         public static void Main(string[] args)
         {
             Numer a = new Numer();
@@ -24,6 +31,7 @@ namespace CourseApp
             a.Value = 5;
             b.Value = 5;
             Console.WriteLine(Program.Calc(a, b));
+            Task2();
             Console.ReadLine();
         }
     }
