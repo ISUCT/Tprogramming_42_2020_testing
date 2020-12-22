@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using Moq;
 
 namespace CourseApp.Tests
 {
@@ -43,6 +44,16 @@ namespace CourseApp.Tests
             Digit a = null;
             Digit b = null;
             Assert.Throws<ArgumentNullException>(() => Program.Calc(a, b));
+        }
+
+        [Fact]
+        public void TestMockFunction()
+        {
+            var startButtonMock = new Mock<StartButton>();
+            startButtonMock.Setup(x => x.Start(It.IsAny<bool>()));
+            var car = new Car(startButtonMock.Object);
+            var res = car.Start();
+            startButtonMock.Verify(x => x.Start(It.IsAny<bool>()), Times.Exactly(1));
         }
     }
 }
